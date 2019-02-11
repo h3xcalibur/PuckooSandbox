@@ -128,7 +128,7 @@ print ba
 
 # query virustotal
 # TODO: replace the hardcoded api key with the conf file
-params = {'apikey': 'a0283a2c3d55728300d064874239b5346fb991317e8449fe43c902879d758088', 'resource': fa.sha256}
+params = {'apikey': 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx', 'resource': fa.sha256}
 headers = {"Accept-Encoding": "gzip, deflate","User-Agent" : "gzip,  My Python requests library example client or username"}
 response = requests.get('https://www.virustotal.com/vtapi/v2/file/report',params=params, headers=headers)
 json_response = response.json()
