@@ -7,26 +7,26 @@ The virtual machine has preinstalled Sysmon for logging system activites (no pro
 
 All of the information can be viewed in a comfortable way at the website: static analysis (hashes, import table, VT results), dynamic analysis (all logs of registry activities, added files, created processes and network communication).
 
-## Examples:
+### Examples:
 **Network view** showing time, process who initiated the communication, src ip, dst ip and dst port
-![network analysis](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/edit/master/screenshots/7.png)
+![network analysis](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/master/screenshots/7.png)
 
 **Static analysis** of shows hashes, size of file and file type. Also, a big button at the buttom to show import address table.
-![static analysis](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/edit/master/screenshots/8.png)
+![static analysis](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/master/screenshots/8.jpeg)
 
 Also, **screenshots** from the victim machine are collected and presented as follows:
-![screenshotsview](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/edit/master/screenshots/1.png)
+![screenshotsview](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/master/screenshots/1.png)
 
 **Dynamic analysis**
 Shows added\deleted registry keys, modified registry keys, created processes and created files on the system during the analysis.
 Each category is separated with tabs. In the created processes tab we can see information about the **proceeses that were created**: when, who is the parent process and what command line it used, pid, path to process, command line, user who created it and hashes of the process.
-![dynamic analysis createdprocs](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/edit/master/screenshots/5.png)
+![dynamic analysis createdprocs](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/master/screenshots/5.png)
 
 Registry set operations:
-![dynamic analysis regset](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/edit/master/screenshots/4.png)
+![dynamic analysis regset](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/master/screenshots/4.png)
 
 Registry keys creation:
-![dynamic analysis regadd](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/edit/master/screenshots/6.png)
+![dynamic analysis regadd](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/master/screenshots/6.png)
 
 Dropped files:
-![dynamic analysis files](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/edit/master/screenshots/2.png)
+![dynamic analysis files](https://raw.githubusercontent.com/h3xcalibur/PuckooSandbox/master/screenshots/2.png)
