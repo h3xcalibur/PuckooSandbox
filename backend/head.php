@@ -3,5 +3,5 @@
     <link rel="stylesheet" href="style/beautiful_tabs.css">
     <link rel="stylesheet" href="style/stylesheet.css">
     <script src="js/tabs.js"></script>
-    <script src="js/what.js"></script>
+    <script src="js/dataTables.js"></script>
 </head>

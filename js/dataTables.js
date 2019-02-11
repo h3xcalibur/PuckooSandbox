@@ -10,13 +10,15 @@ var element = document.getElementById("Network");
 	var smt = fileContent.hits.hits
 	smt.forEach(function(object) {
 	  var tr = document.createElement('tr');
-	  tr.innerHTML += object._source.event_data.forEach(function(obj){
-	    var td = document.createElement('td');
-	    tr.innerHTML = '<td>' + obj + '</td>'
-	  });
-
-	  table.appendChild(tr);
-});
+        tr.innerHTML = '<td>' + object._source.event_data.UtcTime + '</td>' +
+		'<td>' + object._source.event_data.Image + '</td>' +
+		'<td>' + object._source.event_data.SourceIp + '</td>' +
+		'<td>' + object._source.event_data.SourcePort + '</td>' +
+		'<td>' + object._source.event_data.Protocol + '</td>' +
+		'<td>' + object._source.event_data.SourcePort + '</td>'+
+		'<td>' + object._source.event_data.DestinationIp + '</td>';
+		table.appendChild(tr);
+    });
 }
 
 // dynamic analysis tab
@@ -39,8 +41,8 @@ var element2 = document.getElementById("Dynamic");
 		'<td>' + object._source.event_data.ProcessId + '</td>'+
 		'<td>' + object._source.event_data.Image + '</td>'+
 		'<td>' + object._source.event_data.CommandLine + '</td>'+
-		'<td>' + object._source.event_data.Hashes + '</td>'+
-		'<td>' + object._source.event_data.User + '</td>';
+		'<td>' + object._source.event_data.User + '</td>' +
+		'<td>' + object._source.event_data.Hashes + '</td>';
 	  table2.appendChild(tr);
 });
 
@@ -93,33 +95,6 @@ var element3 = document.getElementById("Dynamic");
 });
 }
 
-////static analysis
-var request6 = new XMLHttpRequest();
-request6.open('GET', 'static.json');
-request6.send();
-request6.onload = function() {
-var sp6 = JSON.parse(request6.response);
-var element6 = document.getElementById("Dynamic");
-	var table6 = document.getElementById('static-table');
-
-	var smt6 = sp6
-	smt6.forEach(function(object) {
-	  var tr6 = document.createElement('tr');
-	  tr6.innerHTML = '<td>' + object.sha256 + '</td>' +
-		'<td>' + object.sha1 + '</td>' +
-		'<td>' + object.md5 + '</td>' +
-		'<td>' + object.size + '</td>'+
-		'<td>' + object.file_type + '</td>'+
-		'<td>' + object.detectedbysymantec + '</td>' +
-		'<td>' + object.detectedbymcafee + '</td>' +
-		'<td>' + object.detectedbymicrosoft + '</td>' +
-		'<td>' + object.virustotal + '</td>' +
-		'<td>' + object.baddetections + '</td>' +
-		'<td>' + object.matches_file_type + '</td>';
-	  table6.appendChild(tr6);
-});
-}
-
 ////created files (11) table
 var request5 = new XMLHttpRequest();
 request5.open('GET', 'file_creation.json');
@@ -143,6 +118,49 @@ var element5 = document.getElementById("Dynamic");
 });
 }
 
+////static analysis (hashes, VT..)
+var request6 = new XMLHttpRequest();
+request6.open('GET', 'static.json');
+request6.send();
+request6.onload = function() {
+var sp6 = JSON.parse(request6.response);
+var element6 = document.getElementById("Dynamic");
+	var table6 = document.getElementById('static-table');
+
+	var smt6 = sp6
+	smt6.forEach(function(object) {
+	  var tr6 = document.createElement('tr');
+	  tr6.innerHTML = '<td>' + object.sha256 + '</td>' +
+		'<td>' + object.sha1 + '</td>' +
+		'<td>' + object.md5 + '</td>' +
+		'<td>' + object.size + '</td>'+
+		'<td>' + object.file_type + '</td>'+
+		'<td>' + object.matches_file_type + '</td>';
+	  table6.appendChild(tr6);
+});
+}
+
+////static analysis (hashes, VT..)
+var request6 = new XMLHttpRequest();
+request6.open('GET', 'static.json');
+request6.send();
+request6.onload = function() {
+var sp6 = JSON.parse(request6.response);
+var element6 = document.getElementById("Dynamic");
+	var table6 = document.getElementById('static-tableVT');
+
+	var smt6 = sp6
+	smt6.forEach(function(object) {
+	  var tr6 = document.createElement('tr');
+	  tr6.innerHTML =
+		'<td>' + object.detectedbysymantec + '</td>' +
+		'<td>' + object.detectedbymcafee + '</td>' +
+		'<td>' + object.detectedbymicrosoft + '</td>' +
+		'<td>' + object.virustotal + '</td>' +
+		'<td>' + object.baddetections + '</td>';
+	  table6.appendChild(tr6);
+});
+}
 
 ////behaviour table processes
 var request7 = new XMLHttpRequest();
@@ -153,12 +171,15 @@ var sp7 = JSON.parse(request7.response);
 var element7 = document.getElementById("Dynamic");
 	var table7 = document.getElementById('procsbehav');
 
-	var smt7 = sp7
+	var smt7 = sp7.badreg
+	//console.log(smt7)
 	smt7.forEach(function(object) {
 	  var tr7 = document.createElement('tr');
-	  tr7.innerHTML = '<td>' + object.bu + '</td>' +
-		'<td>' + object.bl + '</td>' +
-		'<td>' + object.bp + '</td>';
+	  tr7.innerHTML = '<td>' + object.image + '</td>' +
+		'<td>' + object.evttype + '</td>' +
+		'<td>' + object.details + '</td>' +
+		'<td>' + object.description + '</td>' +
+		'<td>' + object.pid + '</td>';
 	  table7.appendChild(tr7);
 });
 }
